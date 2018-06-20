@@ -1,0 +1,8 @@
+<h1>수정하겠다</h1>
+
+<form action="/posts/<%= @post.id%>/update">
+  이름 : <input type="text" name="username" value="<%= @post.username%>">
+  제목 : <input type="text" name="title" value="<%= @post.title%>">
+  내용 : <textarea name="content"><%= @post.content%></textarea>
+  <input type="submit" value="내마음속에수정">
+</form>

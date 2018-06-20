@@ -1,0 +1,8 @@
+<h1>글써라</h1>
+<form action="/posts/create" method="post">
+이름 : <input type="text" name="username" />
+제목 : <input type="text" name="title" />
+내용 : <textarea name="content"></textarea>
+<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+<input type="submit" value="내마음속에저장">
+</form>
