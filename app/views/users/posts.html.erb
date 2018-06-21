@@ -1,0 +1,9 @@
+@user.username이 작성한글
+
+<% @posts.each do |post|%>
+<div>
+<%=post.id%>
+<%=post.title%>
+<%=post.content%>
+</div>
+<%end%>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authorize, except: [:index]
   def index
     @posts=Post.all
   end
@@ -7,8 +8,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(username: params[:username],title: params[:title],content: params[:content])
+    Post.create(user_id: params[:user_id],title: params[:title],content: params[:content])
+    flash[:notice] = "글작성!!"
 
+    redirect_to "/"
   end
 
   def show
@@ -21,13 +24,15 @@ class PostsController < ApplicationController
 
   def update
     post=Post.find(params[:id])
-    post.update(username: params[:username],title: params[:title],content: params[:content])
+    post.update(user_id: params[:user_id],title: params[:title],content: params[:content])
+    flash[:notice] = "업데이트 되었다"
     redirect_to "/"
   end
 
   def destroy
     post =Post.find(params[:id])
     post.destroy
+    flash[:alert] = "삭제 되었다"
     redirect_to "/"
   end
 end
